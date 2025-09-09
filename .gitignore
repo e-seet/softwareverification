@@ -1,0 +1,18 @@
+# Build Folders
+bin/
+obj/
+
+# Visual Studio / VS Code
+.vscode/
+*.user
+*.suo
+
+# macOS
+.DS_Store
+
+# NuGet
+*.nupkg
+*.nuget.cache
+
+# Logs
+*.log
