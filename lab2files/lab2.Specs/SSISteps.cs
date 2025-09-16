@@ -4,7 +4,7 @@ using TechTalk.SpecFlow;
 namespace SpecFlowCalculatorTests.StepDefinitions
 {
     [Binding]
-    public sealed class UsingCalculatorStepDefinitions
+    public sealed class UsingCalculatorSSIStepDefinitions
     {
         private double _result;
 
@@ -14,17 +14,18 @@ namespace SpecFlowCalculatorTests.StepDefinitions
             // Calculator is registered in Hooks.cs BeforeScenario
         }
 
-        [When(@"I have entered (.*) and (.*) into the calculator and press add")]
-        public void WhenIHaveEnteredAndIntoTheCalculator(double p0, double p1)
+        [When(@"I have entered (.*), (.*), (.*), and (.*) into the calculator and press SSI")]
+        public void WhenIHaveEnteredAndIntoTheCalculatorAndPressSSI(double p0, double p1, double p2, double p3)
         {
             var calculator = (Calculator)ScenarioContext.Current["Calculator"];
-            _result = calculator.Add(p0, p1);
+            _result = calculator.CalculateSSI(p0, p1, p2, p3);
         }
 
-        [Then(@"the result should be (.*)")]
-        public void ThenTheResultShouldBeOnTheScreen(int p0)
+        [Then(@"the SSI result should be (.*)")]
+        public void ThenTheSSIResultShouldBe(double p0)
         {
             Assert.That(_result, Is.EqualTo(p0));
         }
     }
 }
+
