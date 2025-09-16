@@ -21,3 +21,4 @@ Scenario: Calculate SSI with more deleted than added code
   When I have entered 1000, 50, 25, and 200 into the calculator and press SSI
   Then the SSI result should be 875
 
+

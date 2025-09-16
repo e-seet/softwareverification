@@ -100,7 +100,52 @@ this.ScenarioInitialize(scenarioInfo);
   testRunner.When("I have entered 50 and 70 into the calculator and press add", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 10
-  testRunner.Then("the result should be 120", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.Then("the addition result should be 120", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Add zeros for special cases")]
+        [NUnit.Framework.CategoryAttribute("Addition")]
+        [NUnit.Framework.TestCaseAttribute("0", "0", "0", null)]
+        [NUnit.Framework.TestCaseAttribute("5", "0", "5", null)]
+        [NUnit.Framework.TestCaseAttribute("0", "7", "7", null)]
+        [NUnit.Framework.TestCaseAttribute("-3", "0", "-3", null)]
+        [NUnit.Framework.TestCaseAttribute("0", "-4", "-4", null)]
+        public void AddZerosForSpecialCases(string value1, string value2, string value3, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "Addition"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("value1", value1);
+            argumentsOfScenario.Add("value2", value2);
+            argumentsOfScenario.Add("value3", value3);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add zeros for special cases", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 13
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 14
+  testRunner.Given("I have a calculator", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 15
+  testRunner.When(string.Format("I have entered {0} and {1} into the calculator and press add", value1, value2), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 16
+  testRunner.Then(string.Format("the result should be {0}", value3), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

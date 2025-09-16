@@ -8,11 +8,6 @@ namespace SpecFlowCalculatorTests.StepDefinitions
     {
         private double _result;
 
-        [Given(@"I have a calculator")]
-        public void GivenIHaveACalculator()
-        {
-            // Calculator is registered in Hooks.cs BeforeScenario
-        }
 
         [When(@"I have entered (.*), (.*), (.*), and (.*) into the calculator and press SSI")]
         public void WhenIHaveEnteredAndIntoTheCalculatorAndPressSSI(double p0, double p1, double p2, double p3)

@@ -27,3 +27,4 @@ Scenario: Calculating Availability with zero total time should throw exception
   When I have entered 950 and 0 into the calculator and press Availability
   Then the result should throw an exception
 
+

@@ -9,11 +9,6 @@ namespace SpecFlowCalculatorTests.StepDefinitions
         private double _result;
         private Exception? _exception;
 
-        [Given(@"I have a calculator")]
-        public void GivenIHaveACalculator()
-        {
-            // Calculator is registered in Hooks.cs BeforeScenario
-        }
 
         [When(@"I have entered (.*) into the calculator and press factorial")]
         public void WhenIHaveEnteredIntoTheCalculator(double p0)
@@ -30,14 +25,14 @@ namespace SpecFlowCalculatorTests.StepDefinitions
             }
         }
 
-        [Then(@"the result should be (.*)")]
-        public void ThenTheResultShouldBeOnTheScreen(int p0)
+        [Then(@"the factorial result should be (.*)")]
+        public void ThenTheFactorialResultShouldBe(int p0)
         {
             Assert.That(_result, Is.EqualTo(p0));
         }
 
-        [Then(@"the result should throw an exception")]
-        public void ThenTheResultShouldThrowAnException()
+        [Then(@"the factorial result should throw an exception")]
+        public void ThenTheFactorialResultShouldThrowAnException()
         {
             Assert.That(_exception, Is.Not.Null);
             Assert.That(_exception, Is.InstanceOf<ArgumentException>());

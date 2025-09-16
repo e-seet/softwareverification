@@ -11,5 +11,6 @@ public class Hooks
         var calculator = new Calculator();
         ScenarioContext.Current["Calculator"] = calculator;
     }
+
 }
 

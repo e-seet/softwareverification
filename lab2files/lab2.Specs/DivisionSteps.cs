@@ -8,11 +8,11 @@ namespace SpecFlowCalculatorTests.StepDefinitions
     {
         private double _result;
         private Exception? _exception;
+        private readonly ScenarioContext _scenarioContext;
 
-        [Given(@"I have a calculator")]
-        public void GivenIHaveACalculator()
+        public UsingCalculatorDivisionStepDefinitions(ScenarioContext scenarioContext)
         {
-            // Calculator is registered in Hooks.cs BeforeScenario
+            _scenarioContext = scenarioContext;
         }
 
         [When(@"I have entered (.*) and (.*) into the calculator and press divide")]
@@ -20,7 +20,7 @@ namespace SpecFlowCalculatorTests.StepDefinitions
         {
             try
             {
-                var calculator = (Calculator)ScenarioContext.Current["Calculator"];
+                var calculator = (Calculator)_scenarioContext["Calculator"];
                 _result = calculator.Divide(p0, p1);
                 _exception = null;
             }
@@ -30,17 +30,24 @@ namespace SpecFlowCalculatorTests.StepDefinitions
             }
         }
 
-        [Then(@"the result should be (.*)")]
-        public void ThenTheResultShouldBeOnTheScreen(int p0)
+
+        [Then(@"the division result should throw an exception")]
+        public void ThenTheDivisionResultShouldThrowAnException()
+        {
+            Assert.That(_exception, Is.Not.Null);
+            Assert.That(_exception, Is.InstanceOf<ArgumentException>());
+        }
+
+        [Then(@"the division result should be (.*)")]
+        public void ThenTheDivisionResultShouldBe(double p0)
         {
             Assert.That(_result, Is.EqualTo(p0));
         }
 
-        [Then(@"the result should throw an exception")]
-        public void ThenTheResultShouldThrowAnException()
+        [Then(@"the division result equals positive_infinity")]
+        public void ThenTheDivisionResultEqualsPositiveInfinity()
         {
-            Assert.That(_exception, Is.Not.Null);
-            Assert.That(_exception, Is.InstanceOf<ArgumentException>());
+            Assert.That(_result, Is.EqualTo(double.PositiveInfinity));
         }
     }
 }

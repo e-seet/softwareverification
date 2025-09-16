@@ -7,23 +7,23 @@ Feature: UsingCalculatorFactorial
 Scenario: Calculate factorial of a positive number
   Given I have a calculator
   When I have entered 5 into the calculator and press factorial
-  Then the result should be 120
+  Then the factorial result should be 120
 
 @Factorial
 Scenario: Calculate factorial of zero
   Given I have a calculator
   When I have entered 0 into the calculator and press factorial
-  Then the result should be 1
+  Then the factorial result should be 1
 
 @Factorial
 Scenario: Calculate factorial of one
   Given I have a calculator
   When I have entered 1 into the calculator and press factorial
-  Then the result should be 1
+  Then the factorial result should be 1
 
 @Factorial
 Scenario: Calculate factorial of negative number should throw exception
   Given I have a calculator
   When I have entered -3 into the calculator and press factorial
-  Then the result should throw an exception
+  Then the factorial result should throw an exception
 

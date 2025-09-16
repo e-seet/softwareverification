@@ -7,13 +7,13 @@ Feature: UsingCalculatorDivision
 	Scenario: Divide two numbers
 		Given I have a calculator
 		When I have entered 20 and 4 into the calculator and press divide
-		Then the result should be 5
+		Then the division result should be 5
 
 	@Division
-	Scenario: Divide by zero should throw exception
+	Scenario: Divide by zero should return infinity
 		Given I have a calculator
 		When I have entered 10 and 0 into the calculator and press divide
-		Then the result should throw an exception
+		Then the division result equals positive_infinity
 
 	# lab 2.1  Qn 9
 	@Divisions

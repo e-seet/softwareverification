@@ -9,11 +9,6 @@ namespace SpecFlowCalculatorTests.StepDefinitions
         private double _result;
         private Exception? _exception;
 
-        [Given(@"I have a calculator")]
-        public void GivenIHaveACalculator()
-        {
-            // Calculator is registered in Hooks.cs BeforeScenario
-        }
 
         [When(@"I have entered (.*) and (.*) into the calculator and press defect density")]
         public void WhenIHaveEnteredAndIntoTheCalculatorAndPressDefectDensity(double p0, double p1)

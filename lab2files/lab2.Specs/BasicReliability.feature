@@ -27,3 +27,4 @@ Scenario: Calculate expected failures with zero time
   When I have entered 10, 0.1, and 0 into the calculator and press expected failures
   Then the expected failures result should be 0
 
+

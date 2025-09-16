@@ -11,8 +11,13 @@ namespace ICT3101_Calculator
 
         public double Divide(double num1, double num2)
         {
+            // Handle special cases as per the scenarios
+            if (num1 == 0 && num2 == 0)
+                return 1; // 0/0 = 1 (as per scenario requirement)
+            
             if (num2 == 0)
-                throw new ArgumentException("Cannot divide by zero");
+                return double.PositiveInfinity; // Any number / 0 = positive infinity
+            
             return num1 / num2;
         }
 
