@@ -4,10 +4,11 @@ Run individual test:
 
 # Run each test individually
 
-dotnet test --filter "FullyQualifiedName~DividingTwoNumbers" dotnet test
---filter "FullyQualifiedName~DividingZeroByANumber" dotnet test --filter
-"FullyQualifiedName~DividingByZeros" dotnet test --filter
-"FullyQualifiedName~DividingByZeroByZero"
+dotnet test --filter "FullyQualifiedName~DividingTwoNumbers" 
+dotnet test --filter "FullyQualifiedName~DividingZeroByANumber" 
+
+dotnet test --filter "FullyQualifiedName~DividingByZeros" 
+dotnet test --filter "FullyQualifiedName~DividingByZeroByZero"
 
 
 ## This

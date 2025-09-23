@@ -7,20 +7,25 @@ namespace SpecFlowCalculatorTests.StepDefinitions
     public sealed class UsingCalculatorBasicReliabilityStepDefinitions
     {
         private double _result;
+        private Calculator _calculator;
 
+        //Context Injection for SpecFlow:
+        public UsingCalculatorBasicReliabilityStepDefinitions(Calculator calc)
+        {
+            this._calculator = calc;
+        }
+        //--------------------------------
 
         [When(@"I have entered (.*), (.*), and (.*) into the calculator and press failure intensity")]
         public void WhenIHaveEnteredAndIntoTheCalculatorAndPressFailureIntensity(double p0, double p1, double p2)
         {
-            var calculator = (Calculator)ScenarioContext.Current["Calculator"];
-            _result = calculator.CalculateFailureIntensity(p0, p1, p2);
+            _result = _calculator.CalculateFailureIntensity(p0, p1, p2);
         }
 
         [When(@"I have entered (.*), (.*), and (.*) into the calculator and press expected failures")]
         public void WhenIHaveEnteredAndIntoTheCalculatorAndPressExpectedFailures(double p0, double p1, double p2)
         {
-            var calculator = (Calculator)ScenarioContext.Current["Calculator"];
-            _result = calculator.CalculateExpectedFailures(p0, p1, p2);
+            _result = _calculator.CalculateExpectedFailures(p0, p1, p2);
         }
 
         [Then(@"the failure intensity result should be approximately (.*)")]

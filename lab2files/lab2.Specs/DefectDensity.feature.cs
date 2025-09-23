@@ -132,7 +132,7 @@ this.ScenarioInitialize(scenarioInfo);
   testRunner.When("I have entered 50 and 0 into the calculator and press defect density", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 16
-  testRunner.Then("the result should throw an exception", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.Then("the defect density result should throw an exception", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

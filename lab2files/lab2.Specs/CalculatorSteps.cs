@@ -9,10 +9,17 @@ namespace SpecFlowCalculatorTests.StepDefinitions
         private Calculator _calculator;
         private double _result;
 
+        //Context Injection for SpecFlow:
+        public UsingCalculatorStepDefinitions(Calculator calc)
+        {
+            this._calculator = calc;
+        }
+        //--------------------------------
+
         [Given(@"I have a calculator")]
         public void GivenIHaveACalculator()
         {
-            _calculator = new Calculator();
+            // Calculator is already injected via constructor
         }
 
         [When(@"I have entered (.*) and (.*) into the calculator and press add")]

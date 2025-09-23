@@ -13,6 +13,6 @@ Scenario: Calculate defect density
 Scenario: Calculate defect density with zero software size should throw exception
   Given I have a calculator
   When I have entered 50 and 0 into the calculator and press defect density
-  Then the result should throw an exception
+  Then the defect density result should throw an exception
 
 

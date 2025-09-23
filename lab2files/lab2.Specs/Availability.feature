@@ -19,12 +19,12 @@ Scenario: Calculating Availability
 Scenario: Calculating MTBF with zero failures should throw exception
   Given I have a calculator
   When I have entered 1000 and 0 into the calculator and press MTBF
-  Then the result should throw an exception
+  Then the availability result should throw an exception
 
 @Availability
 Scenario: Calculating Availability with zero total time should throw exception
   Given I have a calculator
   When I have entered 950 and 0 into the calculator and press Availability
-  Then the result should throw an exception
+  Then the availability result should throw an exception
 
 

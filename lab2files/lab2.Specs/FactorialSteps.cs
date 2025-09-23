@@ -8,15 +8,21 @@ namespace SpecFlowCalculatorTests.StepDefinitions
     {
         private double _result;
         private Exception? _exception;
+        private Calculator _calculator;
 
+        //Context Injection for SpecFlow:
+        public UsingCalculatorFactorialStepDefinitions(Calculator calc)
+        {
+            this._calculator = calc;
+        }
+        //--------------------------------
 
         [When(@"I have entered (.*) into the calculator and press factorial")]
         public void WhenIHaveEnteredIntoTheCalculator(double p0)
         {
             try
             {
-                var calculator = (Calculator)ScenarioContext.Current["Calculator"];
-                _result = calculator.Factorial(p0);
+                _result = _calculator.Factorial(p0);
                 _exception = null;
             }
             catch (Exception ex)

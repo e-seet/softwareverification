@@ -8,15 +8,21 @@ namespace SpecFlowCalculatorTests.StepDefinitions
     {
         private double _result;
         private Exception? _exception;
+        private Calculator _calculator;
 
+        //Context Injection for SpecFlow:
+        public UsingCalculatorAvailabilityStepDefinitions(Calculator calc)
+        {
+            this._calculator = calc;
+        }
+        //--------------------------------
 
         [When(@"I have entered (.*) and (.*) into the calculator and press MTBF")]
         public void WhenIHaveEnteredAndIntoTheCalculatorAndPressMTBF(double p0, double p1)
         {
             try
             {
-                var calculator = (Calculator)ScenarioContext.Current["Calculator"];
-                _result = calculator.CalculateMTBF(p0, p1);
+                _result = _calculator.CalculateMTBF(p0, p1);
                 _exception = null;
             }
             catch (Exception ex)
@@ -30,8 +36,7 @@ namespace SpecFlowCalculatorTests.StepDefinitions
         {
             try
             {
-                var calculator = (Calculator)ScenarioContext.Current["Calculator"];
-                _result = calculator.CalculateAvailability(p0, p1);
+                _result = _calculator.CalculateAvailability(p0, p1);
                 _exception = null;
             }
             catch (Exception ex)
@@ -46,8 +51,8 @@ namespace SpecFlowCalculatorTests.StepDefinitions
             Assert.That(_result, Is.EqualTo(p0));
         }
 
-        [Then(@"the result should throw an exception")]
-        public void ThenTheResultShouldThrowAnException()
+        [Then(@"the availability result should throw an exception")]
+        public void ThenTheAvailabilityResultShouldThrowAnException()
         {
             Assert.That(_exception, Is.Not.Null);
             Assert.That(_exception, Is.InstanceOf<ArgumentException>());

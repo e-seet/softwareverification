@@ -164,7 +164,7 @@ this.ScenarioInitialize(scenarioInfo);
   testRunner.When("I have entered 1000 and 0 into the calculator and press MTBF", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 22
-  testRunner.Then("the result should throw an exception", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.Then("the availability result should throw an exception", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -196,7 +196,7 @@ this.ScenarioInitialize(scenarioInfo);
   testRunner.When("I have entered 950 and 0 into the calculator and press Availability", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 28
-  testRunner.Then("the result should throw an exception", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.Then("the availability result should throw an exception", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
