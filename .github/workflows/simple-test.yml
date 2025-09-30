@@ -19,14 +19,23 @@ jobs:
       with:
         dotnet-version: '8.0.x'
         
-    - name: Restore dependencies
+    - name: Restore dependencies - Lab 3
       run: dotnet restore lab3files/Lab3.sln
       
-    - name: Build solution
+    - name: Restore dependencies - Lab 4
+      run: dotnet restore lab4files/Lab4.sln
+      
+    - name: Build solution - Lab 3
       run: dotnet build lab3files/Lab3.sln --configuration Release --no-restore
       
-    - name: Run tests
-      run: dotnet test lab3files/Lab3.sln --configuration Release --no-build --verbosity normal --logger "trx;LogFileName=test-results.trx" --results-directory ./TestResults
+    - name: Build solution - Lab 4
+      run: dotnet build lab4files/Lab4.sln --configuration Release --no-restore
+      
+    - name: Run Lab 3 SpecFlow tests
+      run: dotnet test lab3files/Lab3.sln --configuration Release --no-build --verbosity normal --logger "trx;LogFileName=lab3-test-results.trx" --results-directory ./TestResults
+      
+    - name: Run Lab 4 Unit tests with Mocking
+      run: dotnet test lab4files/Lab4.sln --configuration Release --no-build --verbosity normal --logger "trx;LogFileName=lab4-test-results.trx" --results-directory ./TestResults
       
     - name: Generate test report
       uses: dorny/test-reporter@v1
