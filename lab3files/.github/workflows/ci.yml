@@ -20,13 +20,13 @@ jobs:
         dotnet-version: '8.0.x'
         
     - name: Restore dependencies
-      run: dotnet restore Lab3.sln
+      run: dotnet restore lab3files/Lab3.sln
       
     - name: Build solution
-      run: dotnet build Lab3.sln --configuration Release --no-restore
+      run: dotnet build lab3files/Lab3.sln --configuration Release --no-restore
       
     - name: Run unit tests
-      run: dotnet test Lab3.sln --configuration Release --no-build --verbosity normal --collect:"XPlat Code Coverage"
+      run: dotnet test lab3files/Lab3.sln --configuration Release --no-build --verbosity normal --collect:"XPlat Code Coverage"
       
     - name: Generate test report
       uses: dorny/test-reporter@v1
@@ -79,7 +79,7 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       run: |
         dotnet sonarscanner begin /k:"lab3-calculator" /o:"your-org" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
-        dotnet build Lab3.sln --configuration Release
+        dotnet build lab3files/Lab3.sln --configuration Release
         dotnet sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
 
   deploy:
@@ -97,7 +97,7 @@ jobs:
         dotnet-version: '8.0.x'
         
     - name: Publish application
-      run: dotnet publish Lab3/Lab3.csproj --configuration Release --output ./publish
+      run: dotnet publish lab3files/Lab3/Lab3.csproj --configuration Release --output ./publish
       
     - name: Deploy to staging
       run: echo "Deploying to staging environment..."
